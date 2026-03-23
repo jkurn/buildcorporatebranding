@@ -58,6 +58,34 @@
     }
     .logo span { color: var(--plum); }
 
+    .nav-right {
+      display: flex; align-items: center; gap: 1.2rem;
+    }
+
+    .nav-toggle {
+      display: flex; align-items: center;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 100px; padding: 3px; gap: 0;
+    }
+
+    .nav-toggle a {
+      font-size: 0.72rem; font-weight: 600;
+      padding: 0.4rem 0.9rem; border-radius: 100px;
+      text-decoration: none; transition: all 0.2s;
+      font-family: 'DM Sans', sans-serif;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-toggle a.active {
+      background: var(--plum); color: white;
+    }
+    .nav-toggle a:not(.active) {
+      color: var(--text-muted); background: transparent;
+    }
+    .nav-toggle a:not(.active):hover {
+      color: var(--text-secondary);
+    }
+
     .nav-cta {
       background: var(--plum); color: white; border: none;
       padding: 0.7rem 1.4rem; border-radius: 6px;
@@ -431,7 +459,9 @@
       .hero { padding-top: 7rem; }
       nav { padding: 0.75rem 1rem; }
       .logo { font-size: 0.95rem; }
-      .nav-cta { padding: 0.5rem 1rem; font-size: 0.78rem; }
+      .nav-toggle a { font-size: 0.62rem; padding: 0.35rem 0.6rem; }
+      .nav-right { gap: 0.6rem; }
+      .nav-cta { padding: 0.5rem 0.8rem; font-size: 0.72rem; }
       .possibility-cards { grid-template-columns: 1fr; }
       .stat-row { grid-template-columns: 1fr; max-width: 260px; }
       .email-form { flex-wrap: wrap; }
@@ -446,7 +476,13 @@
   <!-- NAV -->
   <nav>
     <a href="#" class="logo">build<span>corporate</span>branding</a>
-    <a href="#get-started" class="nav-cta">Get the Framework</a>
+    <div class="nav-right">
+      <div class="nav-toggle">
+        <a href="index.html" class="active">Human Influence</a>
+        <a href="agents.html">Agent Influence</a>
+      </div>
+      <a href="#get-started" class="nav-cta">Get the Framework</a>
+    </div>
   </nav>
 
   <!-- ═══════════════════════════════════════
@@ -643,18 +679,6 @@
   </section>
 
   <!-- ═══════════════════════════════════════
-       AGENT TEASER — Dark band, links to subpage
-       ═══════════════════════════════════════ -->
-  <section class="agent-teaser">
-    <div class="agent-teaser-inner">
-      <div class="section-label">Coming Soon</div>
-      <h3>There's a second audience your brand needs to influence.</h3>
-      <p>AI agents are becoming the new gatekeepers — recommending vendors, filtering candidates, shaping decisions before a human ever gets involved. Different biology. Different rules. Same stakes.</p>
-      <a href="agents.html">Explore the Agent Influence Framework &rarr;</a>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════
        STEP 7: TAKE ACTION
        Earned, not demanded.
        ═══════════════════════════════════════ -->
@@ -683,7 +707,7 @@
 
   <!-- FOOTER -->
   <footer>
-    &copy; 2026 buildcorporatebranding.com &middot; <a href="agents.html">Agent Influence</a>
+    Built by <a href="https://jonathankurniawan.com" target="_blank" rel="noopener">Jonathan Kurniawan</a>
   </footer>
 
   <script>

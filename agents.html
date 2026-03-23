@@ -52,12 +52,33 @@
     }
     .logo span { color: var(--teal); }
 
-    .nav-back {
-      color: var(--text-muted); font-size: 0.82rem;
-      text-decoration: none; font-weight: 500;
-      transition: color 0.2s;
+    .nav-right {
+      display: flex; align-items: center; gap: 1.2rem;
     }
-    .nav-back:hover { color: var(--teal); }
+
+    .nav-toggle {
+      display: flex; align-items: center;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 100px; padding: 3px; gap: 0;
+    }
+
+    .nav-toggle a {
+      font-size: 0.72rem; font-weight: 600;
+      padding: 0.4rem 0.9rem; border-radius: 100px;
+      text-decoration: none; transition: all 0.2s;
+      font-family: 'DM Sans', sans-serif;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-toggle a.active {
+      background: var(--teal); color: var(--bg);
+    }
+    .nav-toggle a:not(.active) {
+      color: var(--text-muted); background: transparent;
+    }
+    .nav-toggle a:not(.active):hover {
+      color: var(--text-secondary);
+    }
 
     section { padding: 5.5rem 2rem; max-width: 820px; margin: 0 auto; }
 
@@ -237,7 +258,12 @@
 
   <nav>
     <a href="index.html" class="logo">build<span>corporate</span>branding</a>
-    <a href="index.html" class="nav-back">&larr; Human Influence</a>
+    <div class="nav-right">
+      <div class="nav-toggle">
+        <a href="index.html">Human Influence</a>
+        <a href="agents.html" class="active">Agent Influence</a>
+      </div>
+    </div>
   </nav>
 
   <section class="hero">
@@ -337,7 +363,7 @@
   </section>
 
   <footer>
-    &copy; 2026 buildcorporatebranding.com &middot; <a href="index.html">Human Influence</a>
+    Built by <a href="https://jonathankurniawan.com" target="_blank" rel="noopener">Jonathan Kurniawan</a>
   </footer>
 
   <script>
