@@ -60,7 +60,7 @@
 
     .nav-cta {
       background: var(--plum); color: white; border: none;
-      padding: 0.55rem 1.3rem; border-radius: 6px;
+      padding: 0.7rem 1.4rem; border-radius: 6px;
       font-size: 0.82rem; font-weight: 600; cursor: pointer;
       transition: all 0.2s; text-decoration: none;
       font-family: 'DM Sans', sans-serif;
@@ -132,12 +132,12 @@
 
     /* ── EMAIL FORM ── */
     .email-form {
-      display: flex; gap: 0.6rem; max-width: 440px; margin: 0 auto;
-      flex-wrap: wrap; justify-content: center;
+      display: flex; gap: 0.6rem; max-width: 500px; margin: 0 auto;
+      justify-content: center; flex-wrap: nowrap;
     }
 
     .email-form input {
-      flex: 1; min-width: 220px; padding: 0.85rem 1.1rem;
+      flex: 1 1 auto; min-width: 0; padding: 0.85rem 1.1rem;
       border-radius: 8px; border: 1px solid var(--border);
       background: var(--surface); color: var(--text);
       font-size: 0.95rem; font-family: inherit; outline: none;
@@ -172,8 +172,8 @@
 
     /* ── DIVIDER ── */
     .divider {
-      width: 40px; height: 2px; background: var(--marigold);
-      margin: 0 auto; opacity: 0.5;
+      width: 48px; height: 2px; background: var(--marigold);
+      margin: 0 auto; opacity: 0.7;
     }
 
     /* ── OBSERVATION SECTION (Step 2 — Comfort) ── */
@@ -189,7 +189,7 @@
     .observation-body strong { color: var(--text); font-weight: 600; }
 
     .contrast-table {
-      max-width: 620px; margin: 0 auto;
+      max-width: 700px; margin: 0 auto;
       border: 1px solid var(--border); border-radius: 12px;
       overflow: hidden; background: var(--surface);
     }
@@ -354,11 +354,11 @@
 
     .fw-content h4 {
       font-family: 'Playfair Display', serif;
-      font-size: 0.9rem; font-weight: 600; margin-bottom: 0.2rem;
+      font-size: 1.02rem; font-weight: 600; margin-bottom: 0.2rem;
       color: var(--text);
     }
     .fw-content p {
-      font-size: 0.8rem; color: var(--text-muted); line-height: 1.55;
+      font-size: 0.85rem; color: var(--text-muted); line-height: 1.55;
     }
 
     /* ── AGENT TEASER ── */
@@ -386,9 +386,10 @@
     }
 
     .agent-teaser a {
+      display: inline-block;
       color: var(--teal); font-weight: 600; font-size: 0.88rem;
       text-decoration: none; border-bottom: 1px solid rgba(74, 176, 160, 0.3);
-      transition: border-color 0.2s;
+      transition: border-color 0.2s; padding: 0.6rem 0;
     }
     .agent-teaser a:hover { border-color: var(--teal); }
 
@@ -421,7 +422,7 @@
       padding: 1.8rem; text-align: center;
       font-size: 0.72rem; color: var(--text-muted);
     }
-    footer a { color: var(--plum); text-decoration: none; }
+    footer a { color: var(--plum); text-decoration: none; display: inline-block; padding: 0.5rem 0; }
     footer a:hover { text-decoration: underline; }
 
     /* ── RESPONSIVE ── */
@@ -433,8 +434,8 @@
       .nav-cta { padding: 0.5rem 1rem; font-size: 0.78rem; }
       .possibility-cards { grid-template-columns: 1fr; }
       .stat-row { grid-template-columns: 1fr; max-width: 260px; }
-      .email-form { flex-direction: column; }
-      .email-form input { min-width: 0; }
+      .email-form { flex-wrap: wrap; }
+      .email-form input { flex: 1 1 100%; }
       .email-form button { width: 100%; }
       .contrast-table { font-size: 0.82rem; }
     }
@@ -458,8 +459,6 @@
     <h1>You don't have a <span class="strike">marketing</span> problem. You have a <em>behavior</em> problem.</h1>
 
     <p class="hero-sub">Marketing targets consumers. But consumers don't exist. Only humans do — running on dopamine, pattern recognition, and 200,000 years of survival wiring.</p>
-
-    <p class="hero-small">The brands winning right now aren't louder. They're wired into how people actually decide.</p>
 
     <form class="email-form" id="hero-form" onsubmit="handleSubmit(event, this)">
       <input type="email" placeholder="you@company.com" required aria-label="Email address">
