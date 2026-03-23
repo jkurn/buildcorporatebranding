@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build Corporate Branding — The Biology of Brand Influence</title>
+  <meta name="description" content="Corporate branding built on behavioral science, not marketing myths. Influence two audiences: humans through neuromarketing, AI agents through structured brand signals.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #08080A;
+      --surface: #0F0F12;
+      --surface-2: #161619;
+      --surface-3: #1C1C20;
+      --border: #252529;
+      --border-hover: #3A3A42;
+      --text: #ECECEF;
+      --text-secondary: #B0B0BA;
+      --text-muted: #6E6E7A;
+      --accent: #6C5CE7;
+      --accent-light: #A29BFE;
+      --accent-glow: rgba(108, 92, 231, 0.12);
+      --human: #FF6B6B;
+      --human-glow: rgba(255, 107, 107, 0.12);
+      --agent: #4ECDC4;
+      --agent-glow: rgba(78, 205, 196, 0.12);
+      --warm: #FD9644;
+      --success: #00D68F;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1rem 2rem;
+      background: rgba(8, 8, 10, 0.88);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+
+    .logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--text); text-decoration: none; letter-spacing: -0.02em;
+    }
+    .logo span { color: var(--accent-light); }
+
+    .nav-cta {
+      background: var(--accent); color: white; border: none;
+      padding: 0.6rem 1.4rem; border-radius: 8px;
+      font-size: 0.85rem; font-weight: 600; cursor: pointer;
+      transition: all 0.2s; text-decoration: none;
+    }
+    .nav-cta:hover { background: #5A4BD1; transform: translateY(-1px); }
+
+    /* ── LAYOUT ── */
+    section { padding: 6rem 2rem; max-width: 900px; margin: 0 auto; }
+    .wide { max-width: 1100px; }
+
+    /* ── TYPOGRAPHY ── */
+    h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700; line-height: 1.12; letter-spacing: -0.025em;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-label {
+      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.14em;
+      font-weight: 600; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;
+    }
+    .section-label::before {
+      content: ""; width: 20px; height: 1px;
+    }
+
+    /* ── STEP 1: INTERRUPT PATTERN (HERO) ── */
+    .hero {
+      padding-top: 11rem; padding-bottom: 4rem;
+      text-align: center; max-width: 820px;
+    }
+
+    .myth-tag {
+      display: inline-block;
+      background: rgba(255, 107, 107, 0.08);
+      border: 1px solid rgba(255, 107, 107, 0.2);
+      color: var(--human);
+      font-size: 0.72rem; font-weight: 700;
+      padding: 0.35rem 0.9rem; border-radius: 100px;
+      margin-bottom: 2rem; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.6rem, 6.5vw, 4.2rem);
+      font-weight: 800; line-height: 1.08; letter-spacing: -0.035em;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero h1 .strike {
+      text-decoration: line-through;
+      color: var(--text-muted);
+      text-decoration-color: var(--human);
+      text-decoration-thickness: 3px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--accent-light), var(--agent));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem; color: var(--text-secondary);
+      max-width: 620px; margin: 0 auto 1rem; line-height: 1.7;
+    }
+
+    .hero-sub-small {
+      font-size: 0.95rem; color: var(--text-muted);
+      max-width: 520px; margin: 0 auto 2.5rem; line-height: 1.6;
+    }
+
+    /* ── TWO AUDIENCE PILLS ── */
+    .audience-pills {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .pill {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0.6rem 1.2rem; border-radius: 100px;
+      font-size: 0.82rem; font-weight: 600;
+      border: 1px solid;
+    }
+
+    .pill-human {
+      background: var(--human-glow);
+      border-color: rgba(255, 107, 107, 0.25);
+      color: var(--human);
+    }
+
+    .pill-agent {
+      background: var(--agent-glow);
+      border-color: rgba(78, 205, 196, 0.25);
+      color: var(--agent);
+    }
+
+    .pill-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    .pill-human .pill-dot { background: var(--human); }
+    .pill-agent .pill-dot { background: var(--agent); }
+
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+    /* ── EMAIL FORM ── */
+    .email-form {
+      display: flex; gap: 0.75rem; max-width: 480px; margin: 0 auto;
+      flex-wrap: wrap; justify-content: center;
+    }
+
+    .email-form input {
+      flex: 1; min-width: 240px; padding: 0.9rem 1.2rem;
+      border-radius: 10px; border: 1px solid var(--border);
+      background: var(--surface); color: var(--text);
+      font-size: 1rem; font-family: inherit; outline: none;
+      transition: border-color 0.2s;
+    }
+    .email-form input::placeholder { color: var(--text-muted); }
+    .email-form input:focus { border-color: var(--accent); }
+
+    .email-form button {
+      padding: 0.9rem 2rem; border-radius: 10px; border: none;
+      background: var(--accent); color: white;
+      font-size: 1rem; font-weight: 600; font-family: inherit;
+      cursor: pointer; transition: all 0.2s; white-space: nowrap;
+    }
+    .email-form button:hover {
+      background: #5A4BD1; transform: translateY(-1px);
+      box-shadow: 0 8px 30px var(--accent-glow);
+    }
+
+    .form-note {
+      font-size: 0.78rem; color: var(--text-muted);
+      margin-top: 0.8rem; text-align: center;
+    }
+
+    .success-msg {
+      display: none;
+      background: rgba(0, 214, 143, 0.1);
+      border: 1px solid rgba(0, 214, 143, 0.3);
+      color: var(--success); padding: 1rem 1.5rem; border-radius: 10px;
+      font-weight: 500; max-width: 480px; margin: 0 auto;
+    }
+
+    /* ── STEP 2: CREATE COMFORT ── */
+    .comfort {
+      text-align: center;
+      border-top: 1px solid var(--border);
+      padding-top: 5rem;
+    }
+
+    .comfort .section-label { color: var(--text-muted); justify-content: center; }
+    .comfort .section-label::before { background: var(--text-muted); }
+
+    .comfort h2 { max-width: 700px; margin-left: auto; margin-right: auto; }
+
+    .comfort-body {
+      font-size: 1.05rem; color: var(--text-secondary);
+      max-width: 640px; margin: 0 auto 3rem; line-height: 1.8;
+    }
+
+    .comfort-body strong { color: var(--text); font-weight: 600; }
+
+    .myth-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      max-width: 680px;
+      margin: 0 auto;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .myth-col-header {
+      padding: 1rem 1.5rem;
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .myth-col-header.myth-side {
+      background: rgba(255, 107, 107, 0.04);
+      color: var(--human);
+    }
+    .myth-col-header.reality-side {
+      background: rgba(78, 205, 196, 0.04);
+      color: var(--agent);
+      border-left: 1px solid var(--border);
+    }
+
+    .myth-row {
+      display: contents;
+    }
+
+    .myth-cell {
+      padding: 1rem 1.5rem;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .myth-cell:nth-child(odd) {
+      color: var(--text-muted);
+      text-decoration: line-through;
+      text-decoration-color: rgba(255, 107, 107, 0.3);
+    }
+
+    .myth-cell:nth-child(even) {
+      color: var(--text-secondary);
+      border-left: 1px solid var(--border);
+    }
+
+    .myth-cell:last-child,
+    .myth-row:last-child .myth-cell { border-bottom: none; }
+
+    /* ── STEP 3: LEAD IMAGINATION — TWO AUDIENCES ── */
+    .imagine { text-align: center; }
+
+    .imagine .section-label { color: var(--accent-light); justify-content: center; }
+    .imagine .section-label::before { background: var(--accent-light); }
+
+    .dual-tracks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .track {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      text-align: left;
+      transition: border-color 0.3s;
+    }
+
+    .track:hover { border-color: var(--border-hover); }
+
+    .track-label {
+      font-size: 0.68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.5rem;
+    }
+    .track-human .track-label { color: var(--human); }
+    .track-agent .track-label { color: var(--agent); }
+
+    .track h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.25rem; font-weight: 700;
+      margin-bottom: 1rem; line-height: 1.25;
+    }
+
+    .track p {
+      font-size: 0.9rem; color: var(--text-muted); line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+
+    .track-list {
+      list-style: none; display: flex; flex-direction: column; gap: 0.6rem;
+    }
+
+    .track-list li {
+      font-size: 0.85rem; color: var(--text-secondary);
+      padding-left: 1.2rem; position: relative;
+    }
+
+    .track-list li::before {
+      content: ""; position: absolute; left: 0; top: 8px;
+      width: 6px; height: 6px; border-radius: 50%;
+    }
+    .track-human .track-list li::before { background: var(--human); opacity: 0.5; }
+    .track-agent .track-list li::before { background: var(--agent); opacity: 0.5; }
+
+    /* ── STEP 4: SHIFT THE FEELING ── */
+    .feeling {
+      text-align: center;
+    }
+
+    .feeling .section-label { color: var(--warm); justify-content: center; }
+    .feeling .section-label::before { background: var(--warm); }
+
+    .feeling-quote {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      font-weight: 400; font-style: italic;
+      line-height: 1.5; color: var(--text-secondary);
+      max-width: 700px; margin: 0 auto 2rem;
+    }
+
+    .feeling-quote strong {
+      font-weight: 700; color: var(--text); font-style: normal;
+    }
+
+    .cost-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 2.5rem;
+      max-width: 720px;
+      margin-left: auto; margin-right: auto;
+    }
+
+    .cost-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .cost-card .cost-number {
+      font-family: 'Fraunces', serif;
+      font-size: 2rem; font-weight: 800;
+      color: var(--human);
+      margin-bottom: 0.3rem;
+    }
+
+    .cost-card .cost-desc {
+      font-size: 0.78rem; color: var(--text-muted); line-height: 1.4;
+    }
+
+    /* ── STEP 5: SATISFY THE CRITICAL MIND ── */
+    .logic { text-align: center; }
+
+    .logic .section-label { color: var(--text-secondary); justify-content: center; }
+    .logic .section-label::before { background: var(--text-secondary); }
+
+    .framework-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 3rem;
+      margin-top: 2.5rem;
+      text-align: left;
+      max-width: 760px;
+      margin-left: auto; margin-right: auto;
+    }
+
+    .framework-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.2rem; font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .framework-sub {
+      font-size: 0.88rem; color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .steps-list {
+      display: flex; flex-direction: column; gap: 0;
+    }
+
+    .fw-step {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+    .fw-step:last-child { border-bottom: none; }
+
+    .fw-num {
+      font-family: 'Fraunces', serif;
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--accent); opacity: 0.5;
+      text-align: center; padding-top: 2px;
+    }
+
+    .fw-content h4 {
+      font-size: 0.92rem; font-weight: 700; margin-bottom: 0.25rem;
+    }
+
+    .fw-content p {
+      font-size: 0.82rem; color: var(--text-muted); line-height: 1.55;
+    }
+
+    /* ── STEP 6: CHANGE ASSOCIATIONS ── */
+    .reframe { text-align: center; }
+
+    .reframe .section-label { color: var(--accent-light); justify-content: center; }
+    .reframe .section-label::before { background: var(--accent-light); }
+
+    .reframe-statement {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.4rem, 3.5vw, 2rem);
+      font-weight: 700; line-height: 1.3;
+      max-width: 700px; margin: 0 auto 2.5rem;
+    }
+
+    .reframe-statement .old {
+      color: var(--text-muted);
+      text-decoration: line-through;
+      text-decoration-color: var(--human);
+      text-decoration-thickness: 2px;
+    }
+
+    .reframe-statement .new {
+      background: linear-gradient(135deg, var(--accent-light), var(--agent));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    .association-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .assoc-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.8rem;
+      text-align: left;
+    }
+
+    .assoc-card .assoc-old {
+      font-size: 0.75rem; color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+
+    .assoc-card .assoc-arrow {
+      font-size: 0.75rem; color: var(--accent-light);
+      margin-bottom: 0.5rem;
+    }
+
+    .assoc-card .assoc-new {
+      font-size: 0.95rem; font-weight: 600; color: var(--text);
+      line-height: 1.4;
+    }
+
+    /* ── STEP 7: TAKE ACTION ── */
+    .action {
+      text-align: center;
+      padding-top: 4rem;
+      padding-bottom: 8rem;
+    }
+
+    .action .section-label { color: var(--success); justify-content: center; }
+    .action .section-label::before { background: var(--success); }
+
+    .action h2 { margin-bottom: 1rem; }
+
+    .action-sub {
+      font-size: 1.05rem; color: var(--text-muted);
+      max-width: 520px; margin: 0 auto 2.5rem; line-height: 1.7;
+    }
+
+    .action-proof {
+      display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .action-proof-item {
+      font-size: 0.78rem; color: var(--text-muted);
+      display: flex; align-items: center; gap: 0.4rem;
+    }
+
+    .action-proof-item::before {
+      content: ""; width: 5px; height: 5px; border-radius: 50%;
+      background: var(--success); opacity: 0.6;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem; text-align: center;
+      font-size: 0.78rem; color: var(--text-muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      section { padding: 4rem 1.25rem; }
+      .hero { padding-top: 7rem; }
+      nav { padding: 0.75rem 1rem; }
+      .logo { font-size: 0.95rem; }
+      .nav-cta { padding: 0.5rem 1rem; font-size: 0.78rem; }
+      .dual-tracks { grid-template-columns: 1fr; }
+      .myth-grid { grid-template-columns: 1fr 1fr; font-size: 0.82rem; }
+      .cost-grid { grid-template-columns: 1fr; max-width: 300px; }
+      .association-grid { grid-template-columns: 1fr; }
+      .email-form { flex-direction: column; }
+      .email-form input { min-width: 0; }
+      .email-form button { width: 100%; }
+      .audience-pills { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="logo">build<span>corporate</span>branding</a>
+    <a href="#take-action" class="nav-cta">Get the Framework</a>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════
+       STEP 1: INTERRUPT PATTERN
+       Break autopilot. Challenge what they think they know.
+       ═══════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="myth-tag">The myth of corporate marketing</div>
+
+    <h1>Your brand doesn't have a <span class="strike">marketing</span> problem. It has a <em>behavior</em> problem.</h1>
+
+    <p class="hero-sub">Marketing targets consumers. We target the biology of human behavior — and now, the decision logic of AI agents. Two audiences. One brand. Zero guesswork.</p>
+
+    <p class="hero-sub-small">The companies winning right now aren't louder. They're wired into how people and machines actually make decisions.</p>
+
+    <div class="audience-pills">
+      <div class="pill pill-human">
+        <span class="pill-dot"></span>
+        For Humans — Neuromarketing &amp; Behavior Change
+      </div>
+      <div class="pill pill-agent">
+        <span class="pill-dot"></span>
+        For AI Agents — Structured Brand Signals
+      </div>
+    </div>
+
+    <form class="email-form" id="hero-form" onsubmit="handleSubmit(event, this)">
+      <input type="email" placeholder="you@company.com" required aria-label="Email address">
+      <button type="submit">Get the Framework</button>
+    </form>
+    <p class="form-note">The behavioral branding framework. Free. No sales call.</p>
+    <div class="success-msg" id="hero-success">You're in. Check your inbox for the framework.</div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       STEP 2: CREATE COMFORT
+       "These people understand my real problem."
+       Myth vs Reality table builds trust through honesty.
+       ═══════════════════════════════════════════════ -->
+  <section class="comfort">
+    <div class="section-label">Why most branding fails</div>
+
+    <h2>You've been sold marketing.<br>You needed behavioral science.</h2>
+
+    <p class="comfort-body">
+      Traditional agencies build brands for <strong>"consumers"</strong> — an abstraction that doesn't exist. Real decisions are made by <strong>humans</strong> running on dopamine, cortisol, and pattern recognition. And increasingly, by <strong>AI agents</strong> scanning structured data to make recommendations.
+    </p>
+
+    <div class="myth-grid">
+      <div class="myth-col-header myth-side">What you've been told</div>
+      <div class="myth-col-header reality-side">What actually works</div>
+
+      <div class="myth-row">
+        <div class="myth-cell">"Build brand awareness"</div>
+        <div class="myth-cell">Interrupt neural autopilot with pattern breaks</div>
+      </div>
+      <div class="myth-row">
+        <div class="myth-cell">"Craft your brand message"</div>
+        <div class="myth-cell">Trigger emotional states before presenting information</div>
+      </div>
+      <div class="myth-row">
+        <div class="myth-cell">"Target your audience"</div>
+        <div class="myth-cell">Map the biological pathways of decision-making</div>
+      </div>
+      <div class="myth-row">
+        <div class="myth-cell">"Optimize your funnel"</div>
+        <div class="myth-cell">Engineer neural associations through repetition and emotion</div>
+      </div>
+      <div class="myth-row">
+        <div class="myth-cell">"Improve your SEO"</div>
+        <div class="myth-cell">Build structured brand signals that AI agents can read and trust</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       STEP 3: LEAD IMAGINATION
+       Two parallel tracks — humans and agents.
+       Paint the alternate reality for both.
+       ═══════════════════════════════════════════════ -->
+  <section class="imagine wide">
+    <div class="section-label">The new brand landscape</div>
+
+    <h2>Your brand now has two audiences.<br>Neither responds to traditional marketing.</h2>
+
+    <div class="dual-tracks">
+      <div class="track track-human">
+        <div class="track-label">
+          <span class="pill-dot" style="background:var(--human)"></span>
+          Human Influence
+        </div>
+        <h3>The biology of behavior change</h3>
+        <p>Humans don't make decisions logically. They make them emotionally, then justify with logic. Your brand needs to work with the nervous system, not against it.</p>
+        <ul class="track-list">
+          <li>Pattern interrupts that cut through 10,000 daily ads</li>
+          <li>Trust signals that bypass the skepticism reflex</li>
+          <li>Emotional sequencing — feel first, think second</li>
+          <li>Neural association rewiring through story and repetition</li>
+          <li>Physical engagement triggers that convert intent to action</li>
+        </ul>
+      </div>
+
+      <div class="track track-agent">
+        <div class="track-label">
+          <span class="pill-dot" style="background:var(--agent)"></span>
+          Agent Influence
+        </div>
+        <h3>The architecture of machine trust</h3>
+        <p>AI agents are the new gatekeepers. When a buyer asks ChatGPT "who should we hire for X?" — your brand needs to be in the answer. Different rules, same stakes.</p>
+        <ul class="track-list">
+          <li>Structured data that agents can parse and cite</li>
+          <li>Authority signals that rank in AI-generated recommendations</li>
+          <li>Consistent brand entity across knowledge graphs</li>
+          <li>Content architecture optimized for agent retrieval</li>
+          <li>Reputation scaffolding that survives model updates</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       STEP 4: SHIFT THE FEELING
+       Emotion > logic. Create urgency through feeling.
+       Fear of being invisible to both audiences.
+       ═══════════════════════════════════════════════ -->
+  <section class="feeling">
+    <div class="section-label">The cost of waiting</div>
+
+    <p class="feeling-quote">
+      Right now, someone is asking an AI agent to recommend a company like yours. <strong>Your brand either shows up in that answer, or your competitor's does.</strong> There is no "we'll get to it later."
+    </p>
+
+    <h2>Every day without a behavioral brand strategy costs you in ways you can't see yet.</h2>
+
+    <div class="cost-grid">
+      <div class="cost-card">
+        <div class="cost-number">73%</div>
+        <div class="cost-desc">of B2B buyers make shortlist decisions before talking to sales</div>
+      </div>
+      <div class="cost-card">
+        <div class="cost-number">4 in 5</div>
+        <div class="cost-desc">enterprise buyers now consult AI tools during vendor evaluation</div>
+      </div>
+      <div class="cost-card">
+        <div class="cost-number">0</div>
+        <div class="cost-desc">chances to influence a decision you were never part of</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       STEP 5: SATISFY THE CRITICAL MIND
+       Give logical permission. The framework. The science.
+       ═══════════════════════════════════════════════ -->
+  <section class="logic">
+    <div class="section-label">The science</div>
+
+    <h2>A behavioral framework, not a marketing plan</h2>
+
+    <p style="font-size: 0.95rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 1rem; line-height: 1.7;">
+      Our approach is built on the 7 steps of human behavior change — the same sequence neuroscientists use to understand how beliefs form, shift, and lock in.
+    </p>
+
+    <div class="framework-box">
+      <div class="framework-title">The 7 Steps of Brand Behavior Change</div>
+      <div class="framework-sub">How humans actually move from stranger to advocate</div>
+
+      <div class="steps-list">
+        <div class="fw-step">
+          <div class="fw-num">01</div>
+          <div class="fw-content">
+            <h4>Interrupt the Pattern</h4>
+            <p>Cut through the noise. The brain filters 99% of stimuli. Your brand needs to trigger the orienting response — the neurological "wait, what?" moment.</p>
+          </div>
+        </div>
+        <div class="fw-step">
+          <div class="fw-num">02</div>
+          <div class="fw-content">
+            <h4>Create Comfort</h4>
+            <p>Once you have attention, the amygdala asks: safe or threat? Build instant trust signals that shift the nervous system from guarded to receptive.</p>
+          </div>
+        </div>
+        <div class="fw-step">
+          <div class="fw-num">03</div>
+          <div class="fw-content">
+            <h4>Lead the Imagination</h4>
+            <p>The prefrontal cortex lights up when people imagine alternate futures. Show them a better reality — one where your brand is part of their world.</p>
+          </div>
+        </div>
+        <div class="fw-step">
+          <div class="fw-num">04</div>
+          <div class="fw-content">
+            <h4>Shift the Feeling</h4>
+            <p>Emotion drives decision. Not the other way around. Create the feeling first — excitement, relief, belonging — then the logical mind follows.</p>
+          </div>
+        </div>
+        <div class="fw-step">
+          <div class="fw-num">05</div>
+          <div class="fw-content">
+            <h4>Satisfy the Critical Mind</h4>
+            <p>Now give them logical permission to act on the emotion they already feel. Data, frameworks, social proof — the rational alibi for an emotional decision.</p>
+          </div>
+        </div>
+        <div class="fw-step">
+          <div class="fw-num">06</div>
+          <div class="fw-content">
+            <h4>Change the Association</h4>
+            <p>Repetition + emotion = rewired neural pathways. Your brand stops being "a company" and becomes "the way we think about this problem."</p>
+          </div>
+        </div>
+        <div class="fw-step">
+          <div class="fw-num">07</div>
+          <div class="fw-content">
+            <h4>Trigger Action</h4>
+            <p>Physical engagement locks in the new association. A click, a sign-up, a conversation. The body commits what the mind decided.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       STEP 6: CHANGE ASSOCIATIONS
+       Reframe what "corporate branding" means.
+       ═══════════════════════════════════════════════ -->
+  <section class="reframe">
+    <div class="section-label">Reframe</div>
+
+    <p class="reframe-statement">
+      Corporate branding is not <span class="old">logos, taglines, and ad spend.</span><br>
+      It's <span class="new">behavioral influence infrastructure for humans and machines.</span>
+    </p>
+
+    <div class="association-grid">
+      <div class="assoc-card">
+        <div class="assoc-old">Old: "We need better content"</div>
+        <div class="assoc-arrow">becomes</div>
+        <div class="assoc-new">We need content that triggers specific neural responses</div>
+      </div>
+      <div class="assoc-card">
+        <div class="assoc-old">Old: "We need more visibility"</div>
+        <div class="assoc-arrow">becomes</div>
+        <div class="assoc-new">We need to exist in the knowledge graphs AI agents query</div>
+      </div>
+      <div class="assoc-card">
+        <div class="assoc-old">Old: "We need a stronger brand"</div>
+        <div class="assoc-arrow">becomes</div>
+        <div class="assoc-new">We need neural associations that make us the default choice</div>
+      </div>
+      <div class="assoc-card">
+        <div class="assoc-old">Old: "We need lead generation"</div>
+        <div class="assoc-arrow">becomes</div>
+        <div class="assoc-new">We need behavior change sequences that convert strangers to advocates</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       STEP 7: TAKE ACTION
+       Physical engagement. The email form. Earned, not demanded.
+       ═══════════════════════════════════════════════ -->
+  <section class="action" id="take-action">
+    <div class="section-label">Step 7</div>
+
+    <h2>Get the Behavioral Branding Framework</h2>
+
+    <p class="action-sub">
+      The complete framework for building a corporate brand that influences both humans and AI agents. Applied neuromarketing meets agent-era strategy.
+    </p>
+
+    <form class="email-form" id="bottom-form" onsubmit="handleSubmit(event, this)">
+      <input type="email" placeholder="you@company.com" required aria-label="Email address">
+      <button type="submit">Send Me the Framework</button>
+    </form>
+    <p class="form-note">Free. No sales call. Unsubscribe anytime.</p>
+    <div class="success-msg" id="bottom-success">You're in. Check your inbox for the framework.</div>
+
+    <div class="action-proof">
+      <div class="action-proof-item">Built on behavioral neuroscience</div>
+      <div class="action-proof-item">Agent-era optimized</div>
+      <div class="action-proof-item">Used by B2B leadership teams</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2026 buildcorporatebranding.com. All rights reserved.
+  </footer>
+
+  <script>
+    function handleSubmit(e, form) {
+      e.preventDefault();
+      const email = form.querySelector('input[type="email"]').value;
+
+      // Store email (replace with your actual endpoint — Supabase, ConvertKit, Mailchimp)
+      console.log('Email captured:', email);
+
+      const emails = JSON.parse(localStorage.getItem('bcb_emails') || '[]');
+      emails.push({ email, timestamp: new Date().toISOString() });
+      localStorage.setItem('bcb_emails', JSON.stringify(emails));
+
+      form.style.display = 'none';
+      const successId = form.id === 'hero-form' ? 'hero-success' : 'bottom-success';
+      document.getElementById(successId).style.display = 'block';
+
+      const note = form.nextElementSibling;
+      if (note && note.classList.contains('form-note')) {
+        note.style.display = 'none';
+      }
+    }
+
+    document.querySelector('.nav-cta').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('take-action').scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+
+</body>
+</html>
